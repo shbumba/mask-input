@@ -15,11 +15,15 @@
         var _data = {},
             _option = {
                 prefix: '_',
-                keyIgnore: [8,37,39,46],
+                keyIgnore: [8, 37, 39, 46],
                 setPlaceholder: true,
                 callback: {
-                    success: function (input) {},
-                    error: function (input) {}
+                    success: function (input) {
+                        //success
+                    },
+                    error: function (input) {
+                        //error
+                    }
                 }
             },
             _mask = null,
@@ -44,7 +48,7 @@
                 _input.placeholder = _mask;
             }
 
-            _input.addEventListener('keyup', function(event) {
+            _input.addEventListener('keyup', function (event) {
                 self.setVal(this, event);
             });
         };
@@ -83,14 +87,14 @@
         };
 
         this.setCursor = function (input, charPos) {
-            if(input != null && input != undefined) {
-                if(input.createTextRange) {
+            if (input != null && input != undefined) {
+                if (input.createTextRange) {
                     var range = input.createTextRange();
 
                     range.move('character', charPos);
                     range.select();
                 } else {
-                    if(input.selectionStart) {
+                    if (input.selectionStart) {
                         input.focus();
                         input.setSelectionRange(charPos, charPos);
                     } else {
